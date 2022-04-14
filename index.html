@@ -9,12 +9,12 @@
 <body>
 
     <div class="alert-box" id="alertid">
-        <p>아이디 입력</p>
+        <p class="title">아이디 입력</p>
         <button onclick="idAlert('none')">닫기</button>
     </div>
 
     <div class="alert-box" id="alertpw">
-        <p>비번 입력</p>
+        <p class="title">비번 입력</p>
         <button onclick="pwAlert('none')">닫기</button>
     </div>
 
@@ -23,10 +23,14 @@
     
     <!-- 조작할 html의 하단에! -->
     <script>
+        
+
         function idAlert(blank){
+            document.getElementsByClassName('title')[0].innerHTML = 'id 입력'
             document.getElementById('alertid').style.display = blank;
         }
         function pwAlert(blank){
+            document.getElementsByClassName('title')[1].innerHTML = 'pw 입력'
             document.getElementById('alertpw').style.display = blank;
         }
 
