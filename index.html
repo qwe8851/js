@@ -8,33 +8,28 @@
 </head>
 <body>
 
-    <div class="alert-box" id="alertid">
-        <p class="title">아이디 입력</p>
-        <button onclick="idAlert('none')">닫기</button>
-    </div>
+    <div class="alert-box" id="alert">
+        <p id="title"> 알림창임 </p>
+        <button id="close">닫기</button>
+      </div>
 
-    <div class="alert-box" id="alertpw">
-        <p class="title">비번 입력</p>
-        <button onclick="pwAlert('none')">닫기</button>
-    </div>
-
-    <button onclick="idAlert('block')">버튼1</button>
-    <button onclick="pwAlert('block')">버튼2</button>
+    <button onclick="alertid('id')">버튼1</button>
+    <button onclick="alertpw('pw')">버튼2</button>
     
     <!-- 조작할 html의 하단에! -->
     <script>
-        
+        document.getElementById('close').addEventListener('click', function(){
+            document.getElementById('alert').style.display = 'none';
+        });
 
-        function idAlert(blank){
-            document.getElementsByClassName('title')[0].innerHTML = 'id 입력'
-            document.getElementById('alertid').style.display = blank;
+        function alertid(a){
+            document.getElementById('title').innerHTML = a;
+            document.getElementById('alert').style.display='block';
         }
-        function pwAlert(blank){
-            document.getElementsByClassName('title')[1].innerHTML = 'pw 입력'
-            document.getElementById('alertpw').style.display = blank;
+        function alertpw(a){
+            document.getElementById('title').innerHTML = a;
+            document.getElementById('alert').style.display='block';
         }
-
-
 
     </script>
 
