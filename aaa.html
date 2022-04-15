@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+    <dic class="alert-box" id="alert">
+        <p id="title">하이욤</p>
+        <button id="close">close</button>
+    </dic>
+
+    <button onclick="alert('id')">버튼1</button>
+    <button onclick="alert('pw')">버튼1</button>
+    
+    <!-- 조작할 html의 하단에! -->
+    <script>
+
+        function alert(a){
+            document.getElementById('title').innerHTML = a;
+            document.getElementById('alert').style.display='block';
+            document.getElementById('close').addEventListener('click', function(){
+                document.getElementById('alert').style.display = 'none';
+            });
+        }
+
+
+
+    </script>
+
+</body>
+</html>
