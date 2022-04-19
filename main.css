@@ -6,3 +6,11 @@
     /* 숨기기 : none, 보이기 : block */
     display: none;
 }
+
+.list-group{
+    display: none;
+}
+
+.show{
+    display: block;
+}
