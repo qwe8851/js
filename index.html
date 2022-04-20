@@ -33,15 +33,10 @@
 
       <script>
 
-        document.querySelector('.list-group-item');
-        // querySelector는 맨 위 클래스 하나만 찾아줌
-        // 모두 다 찾고 싶으면 querySelectorAll, 인덱싱([0])을 넣어주면 위에서 몇 번째 클래스를 지정해서 찾을 수 있다.
-        console.log(document.querySelectorAll('.list-group-item')[0]);
-
-          document.getElementsByClassName('navbar-toggler')[0].addEventListener('click',function(){
-            // .toggle : show클래스가 있으면 제거, 없으면 추가 하라는 뜻
-            document.getElementsByClassName('list-group')[0].classList.toggle('show');
-          });
+        document.querySelector('.navbar-toggler').addEventListener('click',function(){
+          // .toggle : show클래스가 있으면 제거, 없으면 추가 하라는 뜻
+          document.querySelector('.list-group').classList.toggle('show');
+        });
 
 
       </script>
