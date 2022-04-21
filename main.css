@@ -11,7 +11,9 @@
     display: none;
 }
 
-
+.show{
+    display: block;
+}
 
 
 .black-bg{
@@ -21,7 +23,9 @@
     background: rgba(0,0,0,0.5);
     z-index: 5;
     padding: 30px;
-    display: none;
+    visibility: hidden;
+    opacity: 0; /* 투명도 */
+    transition: all 1s; /* 1s에 걸려 천천히 변화 */
 }
 
 .white-bg{
@@ -30,6 +34,7 @@
     padding: 30px;
 }
 
-.show{
-    display: block;
+.show-modal{
+    visibility: visible;
+    opacity: 1;
 }
