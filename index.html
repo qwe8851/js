@@ -18,6 +18,15 @@
     <title>Hello, world!</title>
   </head>
   <body>
+
+    <div class="black-bg">
+      <div class="white-bg">
+        <h4>로그인하세요</h4>
+        <button class="btn btn-danger close">닫기</button>
+      </div>
+    </div> 
+
+
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
             <span class="navbar-brand">Navbar</span>
@@ -34,22 +43,15 @@
         <li class="list-group-item">A fourth item</li>
         <li class="list-group-item">And a fifth one</li>
       </ul> 
+
+      <button class="close">login</button>
+
       
-      <p class="hello">안녕</p>
-      <p class="hello">안녕</p>
-      <p class="hello">안녕</p>
-      <button id="test-btn">btn</button>
 
       <script>
 
-        $('.hello').html('하이');        //텍스트
-        $('.hello').css('color','red');  //css
-        $('.hello').toggleClass('show'); //class 탈착
-
-        $('#test-btn').on('click', function(){
-          // $('.hello').hide();     숨기기
-          // $('.hello').fadeOut;    천천히 사라지기
-          //$('.hello').slideUp();     슬라이드로 사라지기
+        $('.close').on('click', function(){
+          $('.black-bg').toggleClass('show');
         });
 
 
