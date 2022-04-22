@@ -25,12 +25,12 @@
 
         <form action="success.html">
           <div class="my-3">
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" id="email">
            </div>
            <div class="my-3">
-             <input type="password" class="form-control">
+             <input type="password" class="form-control" is="password">
            </div>
-           <button type="submit" class="btn btn-primary">전송</button>
+           <button type="submit" class="btn btn-primary" id="send">전송</button>
            <button type="button" class="btn btn-danger close" id="close">닫기</button>
         </form>
 
@@ -58,6 +58,12 @@
 
     <script>
 
+      $('form').on('submit', function(e){
+        if (document.getElementById('email').value == ''){
+          alert("id/pw를 입력해 주세요.");
+          e.preventDefault();  //페이지 전송 막기
+        }
+      });
 
       $('.close').on('click', function(){
         $('.black-bg').toggleClass('show-modal');
