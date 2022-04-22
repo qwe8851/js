@@ -8,11 +8,13 @@
 }
 
 .list-group{
-    display: none;
+    height: 0px;
+    visibility: hidden;
 }
 
 .show{
-    display: block;
+    height: auto;
+    visibility: visible;
 }
 
 
