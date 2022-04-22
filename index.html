@@ -60,7 +60,11 @@
 
       $('form').on('submit', function(e){
         if (document.getElementById('email').value == ''){
-          alert("id/pw를 입력해 주세요.");
+          alert("id를 입력해 주세요.");
+          e.preventDefault();  //페이지 전송 막기
+        }
+        if (document.getElementById('password').value == ''){
+          alert("pw를 입력해 주세요.");
           e.preventDefault();  //페이지 전송 막기
         }
       });
