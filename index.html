@@ -28,7 +28,7 @@
             <input type="text" class="form-control" id="email">
            </div>
            <div class="my-3">
-             <input type="password" class="form-control" is="password">
+             <input type="password" class="form-control" is="pw">
            </div>
            <button type="submit" class="btn btn-primary" id="send">전송</button>
            <button type="button" class="btn btn-danger close" id="close">닫기</button>
@@ -57,15 +57,18 @@
     <button class="close">login</button>
 
     <script>
-
       $('form').on('submit', function(e){
-        if (document.getElementById('email').value == ''){
+        if (document.getElementById('email').value == '') {
           alert("id를 입력해 주세요.");
           e.preventDefault();  //페이지 전송 막기
-        }
-        if (document.getElementById('password').value == ''){
+        } 
+        if (document.getElementById('pw').value == ''){
           alert("pw를 입력해 주세요.");
           e.preventDefault();  //페이지 전송 막기
+        }
+        if (document.getElementById('pw').value.length < 6){
+          alert("pw를 6글자 이상 입력해 주세요.");
+          e.preventDefault();  
         }
       });
 
