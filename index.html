@@ -66,19 +66,23 @@
       <button id="send-answer">제출</button>
 
     <script>
-      let con = 0;
-    $('#send-answer').on('click', function(){
-      if(con<2){
-        if(document.querySelector('#answer').value == '1335'){
-        alert("정답입니다~!");
-      }else{
-        con ++;
-        alert("바보");
-      }
-    }else{
-      alert("3번이나 틀린 바보");
-    }
-    });
+      let countq = 0;
+
+      $('#send-answer').on('click', function(){
+        countq += 1;
+
+        let useranswer = document.querySelector('#answer').value;
+
+        if(useranswer == '1335'){
+          alert('성공');
+        }else if(countq>=3 && useranswer != '1335'){
+          alert('멍청이');
+        }
+      });
+
+
+
+      
       
     </script>
 
