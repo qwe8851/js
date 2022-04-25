@@ -58,11 +58,16 @@
 
     <script>
 
-      document.getElementById('email').addEventListener('change', function(){
-        console.log('안녕');
-      });
-
-
+      function 삼육구게임(params){
+        if(params % 9 ==0){
+          console.log('박박수');
+        }else if (params%3 == 0){
+          console.log('박수');
+        }else{
+          console.log('통과');
+        }
+      }
+      삼육구게임(81);
 
 
       $('form').on('submit', function(e){
