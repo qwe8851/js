@@ -58,16 +58,16 @@
 
     <script>
 
-      function 삼육구게임(params){
-        if(params % 9 ==0){
-          console.log('박박수');
-        }else if (params%3 == 0){
-          console.log('박수');
-        }else{
-          console.log('통과');
+      function 합격했냐(jum1, jum2){
+        if(jum1 < 40 || jum2 < 40){
+          console.log('불합격입니다..');
+        }else if( jum1 + jum2 >=120){
+          console.log('합격입니다.');
+        }else { 
+          console.log('불합격입니다...');
         }
       }
-      삼육구게임(81);
+      합격했냐(50,50);
 
 
       $('form').on('submit', function(e){
