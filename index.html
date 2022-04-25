@@ -17,7 +17,7 @@
 
     <title>Hello, world!</title>
   </head>
-  <body>
+  <body class="dark">
 
     <div class="black-bg">
       <div class="white-bg">
@@ -28,7 +28,7 @@
             <input type="text" class="form-control" id="email">
            </div>
            <div class="my-3">
-             <input type="password" class="form-control" is="pw">
+             <input type="password" class="form-control" id="pw">
            </div>
            <button type="submit" class="btn btn-primary" id="send">전송</button>
            <button type="button" class="btn btn-danger close" id="close">닫기</button>
@@ -39,7 +39,8 @@
 
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-            <span class="navbar-brand">Navbar</span>
+            <span class="navbar-brand">JSShop</span>
+            <span class="badge bg-dark">Dark♻️</span>
             <button class="navbar-toggler" type="button">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -56,18 +57,22 @@
 
     <button class="close">login</button>
 
+
+
     <script>
 
-      function 합격했냐(jum1, jum2){
-        if(jum1 < 40 || jum2 < 40){
-          console.log('불합격입니다..');
-        }else if( jum1 + jum2 >=120){
-          console.log('합격입니다.');
-        }else { 
-          console.log('불합격입니다...');
+      let count = 0;
+
+      $('.badge').on('click', function(){
+        count++;
+        if(count % 2 == 1){
+          $('.badge').html('Light♻️');
+        }else{
+          $('.badge').html('Dark♻️');
         }
-      }
-      합격했냐(50,50);
+      });
+
+      // badge 짝수 클릭 시 내부 글자를 dark로 변경
 
 
       $('form').on('submit', function(e){
