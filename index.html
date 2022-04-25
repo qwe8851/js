@@ -62,17 +62,12 @@
 
     <!-- 연습 script -->
     <script>
-      let 예금액 = 60000;
-      let 미래예금액 = 0;
+      let first = 360;
+      let total = 0;
 
-      if(예금액 >= 50000){
-        미래예금액 = 예금액 * 1.2 * 1.2
-      }
-      else{
-        미래예금액 = 예금액 * 1.15 * 1.15
-      }
+      total = first+ (first * 2/3) + (first * 2/3*2/3);
 
-      console.log(미래예금액)
+      console.log(total);
 
     </script>
 
