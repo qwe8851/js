@@ -57,6 +57,14 @@
     <button class="close">login</button>
 
     <script>
+
+      document.getElementById('email').addEventListener('change', function(){
+        console.log('안녕');
+      });
+
+
+
+
       $('form').on('submit', function(e){
         if (document.getElementById('email').value == '') {
           alert("id를 입력해 주세요.");
