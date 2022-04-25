@@ -61,14 +61,25 @@
 
 
     <!-- 연습 script -->
+    <p>태조 이성계가 태어난 년도는?</p>
+      <input type="text" id="answer">
+      <button id="send-answer">제출</button>
+
     <script>
-      let first = 360;
-      let total = 0;
-
-      total = first+ (first * 2/3) + (first * 2/3*2/3);
-
-      console.log(total);
-
+      let con = 0;
+    $('#send-answer').on('click', function(){
+      if(con<2){
+        if(document.querySelector('#answer').value == '1335'){
+        alert("정답입니다~!");
+      }else{
+        con ++;
+        alert("바보");
+      }
+    }else{
+      alert("3번이나 틀린 바보");
+    }
+    });
+      
     </script>
 
     <script>
