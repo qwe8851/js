@@ -76,6 +76,7 @@
       </div>
     </div>
 
+    <button class="slide-previous">이전</button>
     <button class="slide-1">1</button>
     <button class="slide-2">2</button>
     <button class="slide-3">3</button>
@@ -92,6 +93,40 @@
       
       $('.slide-3').on('click', function(){
         $('.slide-container').css('transform', 'translateX(-200vw)');
+      });
+
+      let picNum = 1;
+
+      // 다음
+      $('.slide-next').on('click', function(){
+        if(picNum == 1){
+          picNum++;
+          $('.slide-container').css('transform', 'translateX(-100vw)');
+        }
+        else if(picNum == 2){
+          picNum++;
+          $('.slide-container').css('transform', 'translateX(-200vw)');
+        }
+        else if(picNum == 3){
+          picNum =1;
+          $('.slide-container').css('transform', 'translateX(0vw)');
+        }
+      });
+
+      // 이전
+      $('.slide-previous').on('click', function(){
+        if(picNum == 1){
+          picNum =3;
+          $('.slide-container').css('transform', 'translateX(-200vw)');
+        }
+        else if(picNum == 2){
+          picNum--;
+          $('.slide-container').css('transform', 'translateX(0vw)');
+        }
+        else if(picNum == 3){
+          picNum --;
+          $('.slide-container').css('transform', 'translateX(-100vw)');
+        }
       });
 
     </script>
