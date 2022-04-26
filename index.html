@@ -56,9 +56,46 @@
     </ul>
 
     <div class="main-bg">
-      <h4>Shirts on Sale</h4>
-      <button class="close btn btn-danger">login</button>
+      <span class="main-bg-span">
+        <h4>Shirts on Sale</h4>
+        <button class="close btn btn-danger">login</button>
+      </span>
     </div>
+
+    <div style="overflow: hidden;">
+      <div class="slide-container">
+        <div class="slide-box">
+          <img src="img/car1.png">
+        </div>
+        <div class="slide-box">
+          <img src="img/car2.png">
+        </div>
+        <div class="slide-box">
+          <img src="img/car3.png">
+        </div>
+      </div>
+    </div>
+
+    <button class="slide-1">1</button>
+    <button class="slide-2">2</button>
+    <button class="slide-3">3</button>
+    <button class="slide-next">다음</button>
+
+    <script>
+      $('.slide-1').on('click', function(){
+        $('.slide-container').css('transform', 'translateX(0vw)');
+      });
+
+      $('.slide-2').on('click', function(){
+        $('.slide-container').css('transform', 'translateX(-100vw)');
+      });
+      
+      $('.slide-3').on('click', function(){
+        $('.slide-container').css('transform', 'translateX(-200vw)');
+      });
+
+    </script>
+
 
     <div class="alert alert-danger">
       <span id="num">5</span>초 이내 구매시 사은품 증정!</div>
