@@ -96,7 +96,11 @@
 
 
       $('form').on('submit', function(e){
-        if (document.getElementById('email').value == '') {
+        let 입력값 = document.getElementById('email').value;
+        if(/\S+@\S+.\S+/.test(입력값)){
+          alert('이메일 형식 아님');
+        }
+        if (입력값 == '' ) {
           alert("id를 입력해 주세요.");
           e.preventDefault();  //페이지 전송 막기
         } 
