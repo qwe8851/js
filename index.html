@@ -55,38 +55,31 @@
       <li class="list-group-item">And a fifth one</li>
     </ul>
 
-    <button class="close">login</button>
+    <div class="main-bg">
+      <h4>Shirts on Sale</h4>
+      <button class="close btn btn-danger">login</button>
+    </div>
 
-
-
-
-    <!-- 연습 script -->
-    <p>태조 이성계가 태어난 년도는?</p>
-      <input type="text" id="answer">
-      <button id="send-answer">제출</button>
+    <div class="alert alert-danger">
+      <span id="num">5</span>초 이내 구매시 사은품 증정!</div>
 
     <script>
-      let countq = 0;
 
-      $('#send-answer').on('click', function(){
-        countq += 1;
+      let countd = 5;
 
-        let useranswer = document.querySelector('#answer').value;
-
-        if(useranswer == '1335'){
-          alert('성공');
-        }else if(countq>=3 && useranswer != '1335'){
-          alert('멍청이');
-        }else if (useranswer == ''){
-          alert('입력해 주세요!');
+      setInterval(function(){
+        if(countd > 0){
+          countd--;
+          $('#num').html(countd);
+        }else{
+          $('.alert').hide();
         }
-      });
-
-
-
+      }, 1000);
       
-      
+
+
     </script>
+
 
     <script>
 

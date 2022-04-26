@@ -42,3 +42,11 @@
 }
 
 
+.main-bg{
+    width: 100%;
+    height: 200px;
+    background-color: rgb(218, 218, 218);
+    padding: 10px;
+    display: table-cell;
+    vertical-align: middle;
+}
