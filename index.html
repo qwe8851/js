@@ -75,8 +75,6 @@
           $('.alert').hide();
         }
       }, 1000);
-      
-
 
     </script>
 
@@ -97,23 +95,27 @@
 
       $('form').on('submit', function(e){
 
-        let 입력값 = document.getElementById('email').value;
+        let emailValue = document.getElementById('email').value;
+        let pwValue = document.getElementById('pw').vlaue;
 
-        if (입력값 == '' ) {
-          alert("id를 입력해 주세요.");
-          e.preventDefault();  //페이지 전송 막기
-        } 
-        if(/\S+@\S+\.\S+/.test(입력한값)){
+        if(/\S+@\S+\.\S+/.test(emailValue) == false){
           alert("올바른 이메일 형식이 아닙니다.");
           e.preventDefault();
         }
-        if (document.getElementById('pw').value == ''){
+        if (emailValue == '' ){
+          alert("id를 입력해 주세요.");
+          e.preventDefault();  //페이지 전송 막기
+        }
+        if (pwValue.length < 6){
+          alert("pw를 6글자 이상 입력해 주세요.");
+          e.preventDefault();  
+        }
+        if (pwValue == '' ){
           alert("pw를 입력해 주세요.");
           e.preventDefault();  //페이지 전송 막기
         }
-        if (document.getElementById('pw').value.length < 6){
-          alert("pw를 6글자 이상 입력해 주세요.");
-          e.preventDefault();  
+        if(/[A-Z]/.test(pwValue) == flase){
+          alert('대문자가 없습니다.');
         }
       });
 
@@ -125,7 +127,6 @@
       document.querySelector('.navbar-toggler').addEventListener('click',function(){
         document.querySelector('.list-group').classList.toggle('show');
       });
-
 
     </script>
 
