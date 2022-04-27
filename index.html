@@ -66,6 +66,7 @@
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptas voluptatum minus praesentium fugit debitis at, laborum ipsa itaque placeat sit, excepturi eius. Nostrum perspiciatis, eligendi quae consectetur praesentium exercitationem.
     </div> 
 
+    <div style="height: 1000px;"></div>
 
     <div style="overflow: hidden;">
       <div class="slide-container">
@@ -94,10 +95,21 @@
     <script>
 
       $('.lorem').on('scroll', function(){
-        let scroll = document.querySelector('.lorem').scrollTop;
-        let scrollheight = document.querySelector('.lorem').scrollHeight; 
-        let clientheight = document.querySelector('.lorem').clientHeight;
-        console.log(scroll, scrollheight, clientheight);
+        let 스크롤양 = document.querySelector('.lorem').scrollTop;
+        let 실제높이 = document.querySelector('.lorem').scrollHeight; 
+        let 보이는높이 = document.querySelector('.lorem').clientHeight;
+
+        if(스크롤양 + 보이는높이 > 실제높이 -10){
+          alert('lorem 다읽음');
+        }
+      });
+
+      $(window).on('scroll', function(){
+        if(window.scrollY > 100){
+          $('.navbar-brand').css('font-size', '20px');
+        } else{
+          $('.navbar-brand').css('font-size', '25px');
+        }
       });
 
 
