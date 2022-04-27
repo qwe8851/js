@@ -62,6 +62,11 @@
       </span>
     </div>
 
+    <div class="lorem" style="width: 200px; height: 100px; overflow-y: scroll">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptas voluptatum minus praesentium fugit debitis at, laborum ipsa itaque placeat sit, excepturi eius. Nostrum perspiciatis, eligendi quae consectetur praesentium exercitationem.
+    </div> 
+
+
     <div style="overflow: hidden;">
       <div class="slide-container">
         <div class="slide-box">
@@ -88,20 +93,13 @@
 
     <script>
 
-      function ms(a, b){
-        let result = a *0.1;
-        if(b==true){
-          result = result -1.5
-        }
-        return result;
-      }
+      $('.lorem').on('scroll', function(){
+        let scroll = document.querySelector('.lorem').scrollTop;
+        let scrollheight = document.querySelector('.lorem').scrollHeight; 
+        let clientheight = document.querySelector('.lorem').clientHeight;
+        console.log(scroll, scrollheight, clientheight);
+      });
 
-      console.log(ms(7,false));
-
-    </script>
-
-
-    <script>
 
       $('.slide-1').on('click', function(){
         $('.slide-container').css('transform', 'translateX(0vw)');
@@ -126,8 +124,6 @@
           picNum ++;
         }
       });
-
-
 
       // 이전
       $('.slide-previous').on('click', function(){
