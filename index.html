@@ -82,6 +82,25 @@
     <button class="slide-3">3</button>
     <button class="slide-next">다음</button>
 
+    <div class="alert alert-danger">
+      <span id="num">5</span>초 이내 구매시 사은품 증정!
+    </div>
+
+    <script>
+
+      function ms(a, b){
+        let result = a *0.1;
+        if(b==true){
+          result = result -1.5
+        }
+        return result;
+      }
+
+      console.log(ms(7,false));
+
+    </script>
+
+
     <script>
 
       $('.slide-1').on('click', function(){
@@ -100,7 +119,6 @@
 
       // 다음
       $('.slide-next').on('click', function(){
-        console.log(picNum);
         $('.slide-container').css('transform', 'translateX(-'+picNum+'00vw)');
         if(picNum == 2){
           picNum = 0;
@@ -109,9 +127,10 @@
         }
       });
 
+
+
       // 이전
       $('.slide-previous').on('click', function(){
-        console.log(picNum);
         $('.slide-container').css('transform', 'translateX(-'+picNum+'00vw)');
           if(picNum == 0){
             picNum = 2;
@@ -120,13 +139,6 @@
           }
       });
 
-    </script>
-
-
-    <div class="alert alert-danger">
-      <span id="num">5</span>초 이내 구매시 사은품 증정!</div>
-
-    <script>
 
       let countd = 5;
 
@@ -139,10 +151,6 @@
         }
       }, 1000);
 
-    </script>
-
-
-    <script>
 
       let count = 0;
 
