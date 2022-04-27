@@ -83,6 +83,7 @@
     <button class="slide-next">다음</button>
 
     <script>
+
       $('.slide-1').on('click', function(){
         $('.slide-container').css('transform', 'translateX(0vw)');
       });
@@ -117,24 +118,6 @@
           } else {
             picNum--;
           }
-      });
-
-
-
-
-      $('.slide-previous').on('click', function(){
-        if(picNum == 100){
-          picNum=300;
-          $('.slide-container').css('transform', 'translateX(-200vw)');
-        }
-        else if(picNum == 200){
-          picNum-=100;
-          $('.slide-container').css('transform', 'translateX(0vw)');
-        }
-        else if(picNum == 300){
-          picNum-=100;
-          $('.slide-container').css('transform', 'translateX(-100vw)');
-        }
       });
 
     </script>
