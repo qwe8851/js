@@ -10,10 +10,9 @@
     <link rel="stylesheet" href="main.css">
     
     <!-- jQuery -->
-    <script
-  src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-  crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"></script>
 
     <title>Hello, world!</title>
   </head>
@@ -46,6 +45,8 @@
             </button>
         </div>
     </nav>
+
+    </script>
 
     <ul class="list-group" >
       <li class="list-group-item">An item</li>
@@ -99,10 +100,14 @@
         let 실제높이 = document.querySelector('.lorem').scrollHeight; 
         let 보이는높이 = document.querySelector('.lorem').clientHeight;
 
-        if(스크롤양 + 보이는높이 > 실제높이 -10){
+        if(스크롤양 + 보이는높이 > 실제높이 -5){
           alert('lorem 다읽음');
         }
       });
+
+      document.querySelector('html').scrollHeight;
+      document.querySelector('html').clientHeight;
+      window.scrollY;
 
       $(window).on('scroll', function(){
         if(window.scrollY > 100){
