@@ -174,3 +174,82 @@ $('.list').click(function(){
 ```
 ▲ 지금누른 버튼을 찾고 싶으면 e.target이고
 거기 숨어있는 data-id 꺼내고 싶으면 .dataset.id 붙이면 된다.
+
+
+
+
+
+
+---
+## 쓸만한 자바스크립트 라이브러리들
+>### 1. swioper
+캐러셀 (이미지슬라이드) 만들 때
+
+[https://swiperjs.com/get-started#use-swiper-from-cdn](https://swiperjs.com/get-started#use-swiper-from-cdn)
+여기가서 튜토리얼 그대로 js 파일, css 파일을 다운받아서 첨부한 뒤에
+html css js 예제코드 복사붙여넣기하면 캐러셀이 나옴.
+
+
+>### 2. Chart.js
+웹페이지에서 차트를 만들고 싶을때 쓴다.
+
+[https://cdnjs.com/libraries/Chart.js](https://cdnjs.com/libraries/Chart.js)
+여기서 js 파일 다운받거나 cdn 버전으로 구해서 html 파일에 넣으면 설치끝임.
+
+[https://www.chartjs.org/docs/latest/](https://www.chartjs.org/docs/latest/)
+그리고 Chart.js 홈페이지 예제 코드 아무데나 붙여넣기 하면 차트나옴.
+
+
+>### 3.  Animate On Scroll
+스크롤 내리면 요소가 서서히 등장하는 애니메이션을 만들고 싶을 때 쓰면 좋음.
+
+유저가 스크롤바를 div 박스 현재 y좌표만큼 내리면 애니메이션 보여달라고 코드짜는 것보다 간편함
+
+[https://github.com/michalsnik/aos](https://github.com/michalsnik/aos)
+여기서 css파일, js 파일 cdn버전 찾아서 html 파일에 넣고
+그 다음에 밑에 <script> 태그 열어서
+```html
+<script> 
+	AOS.init(); 
+</script>
+```
+넣으면 설치 끝
+
+[https://michalsnik.github.io/aos/](https://michalsnik.github.io/aos/)
+그 다음에 위 사이트에서 예제 코드 따라서 복붙하면 구현 끝
+
+<div data-aos="fade-up"></div>
+원하는 박스에 이런거 추가하면 된다고 함.
+시간, 방향 설정가능하고 원하는 클래스명 부착도 됨.
+
+
+>### 4. EmailJS
+원래 이메일  전송은 서버가 해야 하지만 Gmail이런거 서버를 잠깐 빌리면 자바스크립트만으로 이메일 전송이 가능하다.
+유저가 내 이메일 계정으로 이메일 전송도 가능하고
+내 이메일 계정으로 남에게 이메일 전송도 가능함
+
+[https://www.emailjs.com/docs/introduction/how-does-emailjs-work/](https://www.emailjs.com/docs/introduction/how-does-emailjs-work/)
+이 사이트 가서 계정만들고
+튜토리얼 그대로 복붙하고 거기에 내가 방금 만든 EmailJS 계정아이디만 채우면 끝.
+
+
+>### 5. Lodash
+array, object, 문자, 숫자 자료를 다루기 편해지는 기본 함수들을 제공해준다.
+
+[https://lodash.com/](https://lodash.com/)
+예를 들어 array자료에 있는 마음에 안드는 'a'라는 문자를 제거하고 싶으면 
+직접 반복문 돌리거나 filter함수 쓰면 되는데,
+
+Lodash설치해 놨으면 그냥 **_.pull(어레이자료, 'a');** 쓰면 된다.
+
+
+>### 6. React/Vue
+페이지가 너무 많아서 UI재활용이 자주 필요한 사이트나 모바일 앱처럼 페이지 이동없이 동작하는 Single Page Application을 만들 때 유용한 자바스크립트 라이브러리.
+
+
+>### 7. Fullpage.js
+웹페이지를 ppt처럼 만들어 줌 
+
+[https://github.com/alvarotrigo/fullPage.js/tree/master/lang/korean#fullpagejs](https://github.com/alvarotrigo/fullPage.js/tree/master/lang/korean#fullpagejs)
+여기서 css, js 파일을 cdn 식으로 설치,
+html과 js 코드를 복사붙여넣기하면 완성.
