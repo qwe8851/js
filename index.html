@@ -97,19 +97,12 @@
 
       // black-bg 클릭 시 모달창 닫기
       $('.black-bg').on('click', function(e){
-        
-        // e.target;   //유저가 실제로 누른거
-        // e.currentTarget;    //이벤트리스너가 달린 곳
-        // e.preventDefault();   //기본동작 막기
-        // e.stopPropagation();
-        
-        console.log(e.target);
 
         if(e.target == document.querySelector('.black-bg')){  //jquery로 쓰려면 $('.black-bg')[0]으로 써야 함
           $('.black-bg').removeClass('show-modal');
         }
 
-      });ㄴ
+      });
 
 
       $('.lorem').on('scroll', function(){
