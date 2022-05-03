@@ -95,6 +95,12 @@
 
     <script>
 
+      // black-bg 클릭 시 모달창 닫기
+      $('.black-bg').on('click', function(){
+        $('.black-bg').removeClass('show-modal');
+      });
+
+
       $('.lorem').on('scroll', function(){
         let 스크롤양 = document.querySelector('.lorem').scrollTop;
         let 실제높이 = document.querySelector('.lorem').scrollHeight; 
