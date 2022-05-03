@@ -1,12 +1,22 @@
 let tabBtn = $('.tab-button');
 let tabCont = $('.tab-content');
 
-for(let i = 0; i<tabBtn.length; i++){
-    tabBtn.eq(i).on('click', function(){
-        tabBtn.removeClass('orange');
-        tabBtn.eq(i).addClass('orange');
-        tabCont.removeClass('show');
-        tabCont.eq(i).addClass('show');
-    }); 
-}
+$('.list').click(function(e){
+    tapOpen(e.target.dataset.id);
+    $('list').data('id');
+});
 
+
+// for(let i = 0; i<tabBtn.length; i++){
+//     tabBtn.eq(i).on('click', function(){
+//         tapOpen(i);
+//     }); 
+// }
+
+
+function tapOpen(i){
+    tabBtn.removeClass('orange');
+    tabBtn.eq(i).addClass('orange');
+    tabCont.removeClass('show');
+    tabCont.eq(i).addClass('show');
+}

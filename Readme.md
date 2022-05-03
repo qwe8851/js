@@ -68,3 +68,109 @@ jQuery 셀렉터로 찾은 결과와 querySelector 셀렉터로 찾은 결과가
 이런 비교용 함수를 쓴다.
 
 방법 2) \$(e.target).is(\$('.black-bg'))
+
+
+## 이벤트 버블링 응용과 dataset
+
+[전에 만들어둔 탭기능 코드]
+```js
+for (let i = 0; i < $('.tab-button').length; i++){
+	$('.tab-button').eq(i).on('click', function(){
+		$('.tab-button').removeClass('orange'); 
+		$('.tab-button').eq(i).addClass('orange');
+		$('.tab-content').removeClass('show'); 
+		$('.tab-content').eq(i).addClass('show'); 
+	}) 
+});
+```  
+
+> #### 전에 만들었던 탭기능 함수로 축약해보기
+함수로 축약했을 때의 장점은
+1. 재사용성
+2. 이해가 쉽다
+
+```js
+for (let i = 0; i < $('.tab-button').length; i++){
+	$('.tab-button').eq(i).on('click', function(){
+		탭열기(i);
+	});
+});
+
+function 탭열기(구멍){
+	$('.tab-button').removeClass('orange');
+	$('.tab-button').eq(구멍).addClass('orange');
+	$('.tab-content').removeClass('show');
+	$('.tab-content').eq(구멍).addClass('show');
+}
+```  
+**Q. 왜 구멍뚫음?**
+A. 함수로 코드를 싸맬 때 안에 변수가 들어있으면 변수를 전부 파라미터로 바궈주어야 잘 동작한다. 
+그래서 i 부분을 전부 파라미터로 변경함.
+
+이제 함수 사용할 때
+**탭열기(0)**  이러면 0번 탭이 열림
+**탭열기(1)**  이러면 1번 탭이 열림
+**탭열기(2)**  이러면 2번 탭이 열림
+
+> #### 이벤트버블링을 알면 이벤트리스너를 줄일 수 있음
+지금 탭을 만들 때 이벤트리스너를 3개나 부착했지만(버튼이 3개니까), 이벤트리스너 1개만 써도 충분히 기능구현이 가능함.
+
+이벤트버블링을 이용하면 버튼 3개의 부모인 **.list**에 이벤트리스너 1개만 있어도 탭기능만들 수 있다.
+
+```js
+$('.list').click(function(e){ 
+	if (e.target == document.querySelectorAll('.tab-button')[0] )
+		탭열기(0);
+	} 
+	if (e.target == document.querySelectorAll('.tab-button')[1] )
+		탭열기(1);
+	} 
+	if (e.target == document.querySelectorAll('.tab-button')[2] ) 
+		탭열기(2);
+	} 
+}); 
+
+function 탭열기(){ 
+	생략 
+}
+```
+dataset문법을 알면 위 코드를 좀 더 짧게 바꿀 수 있다.
+
+> #### dataset문법
+```html
+<div data-데이터이름="값"></div>
+```
+html안에 유저 몰래 정보를 숨겨놓을 수 있다.
+데이터이름은 아무렇게나 작명하고 값을 넣어주면 된다.
+
+```js
+document.querySelector().dataset.데이터이름;
+```
+출력해보면 html요소에 숨겨두었던 데이터가 이 자리에 남는다.
+
+```html
+<li class="tab-button" data-id="0">Products</li>
+<li class="tab-button orange" data-id="1">Information</li>
+<li class="tab-button" data-id="2">Shipping</li>
+```
+▲ 우선 탭의 버튼들에 이렇게 데이터를 넣어둔다.
+아까는 if문이 3개였음
+버튼0 누르면 탭열기(0)실행~
+버튼1 누르면 탭열기(1)실행~
+버튼2 누르면 탭열기(2)실행~
+
+```js
+$('.list').click(function(){ 
+	탭열기(지금누른버튼에 숨어있던 data-id) 
+});
+```
+▲ 근데 이렇게 코드짜면 굳이 if문이 필요없이 한 줄로 해결할 수 있다.
+**지금누른버튼에 숨어있던 data-id를 알려주는** 코드도 있다!
+
+```js
+$('.list').click(function(){ 
+	탭열기(지금누른버튼에 숨어있던 data-id) 
+});
+```
+▲ 지금누른 버튼을 찾고 싶으면 e.target이고
+거기 숨어있는 data-id 꺼내고 싶으면 .dataset.id 붙이면 된다.
