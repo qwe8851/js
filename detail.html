@@ -20,15 +20,15 @@
 
     <div class="container mt-3">
       <div class="card p-3">
-        <span class='carName'>소나타</span>/<span class='carPrice'>50000</span>
+        <span class="car-title">상품명</span>
+        <span class="car-price">가격</span>
       </div>
     </div>
 
     <script>
-      let car = ['소나타', 50000, 'white'];
-      let car2 = {name : '소나타', price : 50000}
 
-      console.log(car2.price);
+      let car2 = {name : '소나타', price : [50000, 3000, 4000] }
+      document.querySelector('.car-price').innerHTML = car2.price[0];
 
     </script>
 
