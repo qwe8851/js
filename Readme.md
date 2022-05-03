@@ -8,7 +8,7 @@ click이라는 이벤트로 예를 들어보면,
 HTML 태그에 클릭이 발생하면 그의 모든 상위요소까지 자동으로 클릭되는데 이걸 이벤트버블링 이라고 한다.
 
 
-#### 이벤트리스너 안에서 쓰는 이벤트 함수들
+> #### 이벤트리스너 안에서 쓰는 이벤트 함수들
 ``` js
 document.querySelector('.black-bg').addEventListener('click', function(e){
 	e.target; 
@@ -29,7 +29,7 @@ document.querySelector('.black-bg').addEventListener('click', function(e){
 ※ 중요! e.target은 이벤트 버블링이 일어난다고 해도 사용자가 실제로 클릭한 그 요소를 찾아낼 수 있다.
 
 
-#### 모달창 닫기 버그 해결 방법
+>#### 모달창 닫기 버그 해결 방법
 .black-bg클릭 시,
 지금 실제로 클릭한게 검은 배경일 때만 닫기!
 
