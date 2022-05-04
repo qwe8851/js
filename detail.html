@@ -25,16 +25,31 @@
       </div>
     </div>
 
-    <script>
+    <form class="container my-5 form-group">
+      <p>상품선택</p>
+      <!-- <input> -->
+      <select class="form-select mt-2">
+        <option>모자</option>
+        <option>셔츠</option>
+      </select>
+      <select class="form-select mt-2 form-hide">
+        <option>100</option>
+        <option>95</option>
+        <option>90</option>
+      </select>
+  </form>
 
-      let car2 = {name : '소나타', price : [50000, 3000, 4000] }
-      document.querySelector('.car-price').innerHTML = car2.price[0];
-
-    </script>
-
-
-
-
+  <script>
+    $('.form-select').eq(0).on('input', function(){
+      let value = $('.form-select').eq(0).val();   // = this.value;
+      if(value == '셔츠'){
+        $('.form-select').eq(1).removeClass('form-hide');
+      }
+      else{
+        $('.form-select').eq(1).addClass('form-hide');
+      }
+    })
+  </script>
 
 
     <div class="container mt-5">
@@ -53,8 +68,6 @@
         <p>배송정보입니다. Shipping</p>
       </div>
     </div>
-  
-  
 
     <style>
       ul.list {
@@ -92,6 +105,9 @@
       }
       .show {
         display: block;
+      }
+      .form-hide{
+        display: none;
       }
     </style>
 

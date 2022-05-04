@@ -103,7 +103,7 @@ function 탭열기(구멍){
 	$('.tab-content').eq(구멍).addClass('show');
 }
 ```  
-**Q. 왜 구멍뚫음?**
+**Q. 왜 구멍뚫음?**<br>
 A. 함수로 코드를 싸맬 때 안에 변수가 들어있으면 변수를 전부 파라미터로 바궈주어야 잘 동작한다. 
 그래서 i 부분을 전부 파라미터로 변경함.
 
@@ -248,7 +248,58 @@ console.log(`문자 ${a} 문자`); // '문자안녕문자'출력됨
 - 문자 중간에 엔터를 칠 수 있고,
 - 중간에 ${변수명}문법 이용 가능함.
 
+## Select 인풋 다루기
+\<select\>는 \<input\>과 같지만,
+사용자가 고를 수 있는 선택지를 드랍다운 메뉴로 제공하는 \<input\>이라고 할 수 있습니다. 
+선택지는 \<option\>으로 넣으면 됨.
 
+- \<select\>태그도 선택시 input, change이벤트가 발생한다.
+- \<select\>태그도 .value로 유저가 입력한 값을 가지고 올 수 있다.
+
+>#### "셔츠" 선택 시 또다른 \<select\>보여주기
+```html
+<form class="container my-5 form-group">  
+	<p>상품선택</p>  
+		<select class="form-select mt-2">  
+			<option>모자</option>  
+			<option>셔츠</option>  
+		</select>  
+		<select class="form-select mt-2 form-hide">  
+			<option>95</option>  
+			<option>100</option>  
+		</select>  
+</form>
+```
+미리 \<select\> 하나 더 추가해 두고 form-hide클래스에는 display: none;을 줍니다. 
+
+```html
+<script> 
+	var value = $('.form-select').eq(0).val();
+	if (value == '셔츠') { 
+		$('.form-select').eq(1).removeClass('form-hide'); 
+	} 
+</script>
+```
+유저가 \<select\>에서 어떤걸 선택했는지는 \<input\>과 똑같이 .value를 쓰면 가져올 수 있다.
+**그런데 실행은 안됨..**
+
+>#### \<select\>안에 대충 적은 코드는 페이지 로드 시 1회 실행된다.
+중요! 지금 "유저가 '셔츠'를 선택하면 form-hide제거해 주세요~" 라고 코드를 짰는데
+이 코드는 \<script\>안에 적었기 때문에 그냥 페이지 로드 시 1회 실행되고 다시 실행되지 않는다.
+→ **저 코드를 \<select\>를 조작할 때 마다 실행한다면** 의도대로 잘 동작할 듯!
+
+```html
+<script> 
+	$('.form-select').eq(0).on('input', function(){ 
+		var value = $('.form-select').eq(0).val(); 
+		if (value == '셔츠') { 
+			$('.form-select').eq(1).removeClass('form-hide'); 
+		} 
+	});
+</script>
+```
+\<input\>이나 \<select\>조작할 때 input이벤트가 발생하기 때문에 
+'input'이벤트리스너를 부착함
 
 
 
