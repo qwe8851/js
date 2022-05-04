@@ -43,16 +43,21 @@
             <button class="btn btn-danger">주문하기</button>
           </div>
         </div>
-      </div>
+    </div>
       
-      <script>
-        var products = [
-          { id : 0, price : 70000, title : 'Blossom Dress' },
-          { id : 1, price : 50000, title : 'Springfield Shirt' },
-          { id : 2, price : 60000, title : 'Black Monastery' }
-        ];
-      </script>
+    <script>
 
+        var products = [
+            { id : 0, price : 70000, title : 'Blossom Dress' },
+            { id : 1, price : 50000, title : 'Springfield Shirt' },
+            { id : 2, price : 60000, title : 'Black Monastery' }
+        ];
+
+        for(let i=0; i<3; i++){
+            $('.card-body h5').eq(i).html(products[i].title);
+            $('.card-body p').eq(i).html(`가격 : ${products[i].price}`);
+        }
+    </script>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

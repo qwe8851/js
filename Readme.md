@@ -219,6 +219,37 @@ array는 순서개념이 있다보니
 
 
 
+## 데이터바인딩 숙제 & 문자중간에 변수넣는 법
+```js
+var products = [ 
+	{ id : 0, price : 70000, title : 'Blossom Dress' }, 
+	{ id : 1, price : 50000, title : 'Springfield Shirt' }, 
+	{ id : 2, price : 60000, title : 'Black Monastery' } 
+];
+```
+-  console.log(products)하면 **[ { } , { } , { } ]** 이렇게 나온다.
+array[]안에 3개의 object{}가 들어가 있는 것이다. (array니까 인덱싱가능)
+
+- console.log(products[0])을 해보면 **{ id : 0, price : 70000, title : 'Blossom Dress' }**가 나오는데 중괄호는 object이므로 이름을 불러주면 된다.
+'Blossom Dress'를 뽑으려면 console.log(products[0].title)을 해주면 된다.
+
+>#### 문법 중간에 변수 넣는 방법
+```js
+var a = '안녕'; 
+console.log('문자' + a + '문자'); // '문자안녕문자'출력됨
+```
+1. 싱글쿼데이션과 +를 이용해 넣는 방법
+
+```js
+var a = '안녕'; 
+console.log(`문자 ${a} 문자`); // '문자안녕문자'출력됨
+```
+2. 백틱을 이용한 방법
+- 문자 중간에 엔터를 칠 수 있고,
+- 중간에 ${변수명}문법 이용 가능함.
+
+
+
 
 
 
