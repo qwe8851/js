@@ -97,11 +97,11 @@
 
       // black-bg 클릭 시 모달창 닫기
       $('.black-bg').on('click', function(e){
-
-        if(e.target == document.querySelector('.black-bg')){  //jquery로 쓰려면 $('.black-bg')[0]으로 써야 함
-          $('.black-bg').removeClass('show-modal');
-        }
-
+        $('.black-bg').removeClass('show-modal');
+        e.target; //유저가 실제로 누른거
+        e.currentTarget;   //
+        e.preventDefault();
+        e.stopPropagation();
       });
 
 
