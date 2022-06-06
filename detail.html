@@ -42,7 +42,7 @@
 
   <script>
     $('.form-select').eq(0).on('input', function(){
-      let value = $('.form-select').eq(0).val();   // = this.value;
+      let value = $('.form-select').eq(0).val();   // = this.value; =e.currentTarget.value;
       if(value == '셔츠'){
         $('.form-select').eq(1).removeClass('form-hide');
       }
