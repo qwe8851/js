@@ -32,36 +32,37 @@
       <select class="form-select mt-2">
         <option>모자</option>
         <option>셔츠</option>
+        <option>바지</option>
       </select>
-      <select class="form-select mt-2 form-hide">
+      <select class="form-select mt-2 form-hide" id = "aa">
         <option>100</option>
         <option>95</option>
         <option>90</option>
       </select>
   </form>
 
-
-  <div id="test">
-
-  </div>
-
-  <script>
-    var a = document.createElement('p');
-    a.innerHTML = '안녕';
-    document.querySelector('#test').appendChild(a);
-  </script>
   
   <script>
-
-    let a = document.createElement('p');
-    a.innerHTML = '안녕';
-    $('#test').appendChild(a);
-    
+  
+    let pants = [28, 30, 32];
 
     $('.form-select').eq(0).on('input', function(){
       let value = $('.form-select').eq(0).val();   // = this.value; =e.currentTarget.value;
       if(value == '셔츠'){
         $('.form-select').eq(1).removeClass('form-hide');
+        let a = '<option>100</option><option>95</option><option>90</option>';
+        $('#aa').html(a);
+      }
+      else if(value == '바지'){
+        $('.form-select').eq(1).removeClass('form-hide');
+        // let a = '<option>28</option><option>30</option>';
+        // $('#aa').html(a);
+
+        // forEach : array자료에만 붙일 수 있는 반복문 
+        // forEach를 쓸때는 꼭 콜백함수를 넣어주어야 한다.
+        pants.forEach(function(){
+          
+        })
       }
       else{
         $('.form-select').eq(1).addClass('form-hide');
