@@ -40,7 +40,24 @@
       </select>
   </form>
 
+
+  <div id="test">
+
+  </div>
+
   <script>
+    var a = document.createElement('p');
+    a.innerHTML = '안녕';
+    document.querySelector('#test').appendChild(a);
+  </script>
+  
+  <script>
+
+    let a = document.createElement('p');
+    a.innerHTML = '안녕';
+    $('#test').appendChild(a);
+    
+
     $('.form-select').eq(0).on('input', function(){
       let value = $('.form-select').eq(0).val();   // = this.value; =e.currentTarget.value;
       if(value == '셔츠'){
