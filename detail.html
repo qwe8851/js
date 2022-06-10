@@ -45,29 +45,32 @@
   <script>
   
     let pants = [28, 30, 32];
+    let shirts = [95, 100, 105];
 
     $('.form-select').eq(0).on('input', function(){
       let value = $('.form-select').eq(0).val();   // = this.value; =e.currentTarget.value;
       if(value == '셔츠'){
         $('.form-select').eq(1).removeClass('form-hide');
-        let a = '<option>100</option><option>95</option><option>90</option>';
-        $('#aa').html(a);
-      }
-      else if(value == '바지'){
-        $('.form-select').eq(1).removeClass('form-hide');
-        // let a = '<option>28</option><option>30</option>';
-        // $('#aa').html(a);
+        $('.form-select').eq(1).html(''); //기존 html 비우기
 
         // forEach : array자료에만 붙일 수 있는 반복문 
         // forEach를 쓸때는 꼭 콜백함수를 넣어주어야 한다.
-        pants.forEach(function(){
-          
+        shirts.forEach(function(a, i){
+          $('.form-select').eq(1).append(`<option>${a}</option>`)
+        })
+      }
+      else if(value == '바지'){
+        $('.form-select').eq(1).removeClass('form-hide');
+        $('.form-select').eq(1).html(''); //기존 html 비우기
+
+        pants.forEach(function(a, i){
+          $('.form-select').eq(1).append(`<option>${a}</option>`)
         })
       }
       else{
         $('.form-select').eq(1).addClass('form-hide');
       }
-    })
+    });
   </script>
 
 
