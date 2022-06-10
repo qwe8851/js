@@ -46,27 +46,53 @@
   
   //Q1. Array에서 철수 찾기
 
-  var 출석부 = ['흥민', '영희', '철수', '재석'];
+  // var 출석부 = ['흥민', '영희', '철수', '재석'];
 
-  function 이름찾기(val){ 
-    //출석부.forEach((item) => console.log(val+ " 있어요") );
+  // function 이름찾기(val){ 
+  //   //출석부.forEach((item) => console.log(val+ " 있어요") );
 
-    var nameArr = 출석부.filter((item)=> item==val).map((item)=> val);    
-    console.log(nameArr + " 있어요");
-  }
+  //   var nameArr = 출석부.filter((item)=> item==val).map((item)=> val);    
+  //   console.log(nameArr + " 있어요");
+  // }
 
-  이름찾기('철수');
+  // 이름찾기('철수');
 
   
   //Q2. 구구단 출력
-  for(let i =1; i<10; i++){
-    console.log(`${i}단 시작합니다잉~!`);
+  // for(let i =1; i<10; i++){
+  //   console.log(`${i}단 시작합니다잉~!`);
 
-    for(let j=1; j<10; j++){
-      console.log(`${i} * ${j} = ${i*j}`);
+  //   for(let j=1; j<10; j++){
+  //     console.log(`${i} * ${j} = ${i*j}`);
+  //   }
+  //   console.log('\n');
+  // }
+
+  
+  //Q3. 평균 점수 계산기 
+  function 함수(arr, b){
+    var result = 0;
+
+    for ( let i = 0; i < arr.length; i++ ) {
+      result = result + arr[i]
     }
-    console.log('\n');
+
+    let avg = result / arr.length; 
+    
+    if(avg < b){
+      let jum = b - avg;
+      console.log(`평균보다 ${jum}점 높음`);
+    } else {
+      let aaaaa = avg - b;
+      console.log(`평균보다 ${jum}점 낮음`);
+    }
   }
+
+  함수([2,3,4], 10);
+
+
+
+
 
 
   let pants = [28, 30, 32];
