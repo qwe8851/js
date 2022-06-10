@@ -44,10 +44,27 @@
   
   <script>
   
+  //Q1. Array에서 철수 찾기
+
+  var 출석부 = ['흥민', '영희', '철수', '재석'];
+
+  function 이름찾기(val){ 
+    //출석부.forEach((item) => console.log(val+ " 있어요") );
+
+    var nameArr = 출석부.filter((item)=> item==val).map((item)=> val);    
+    console.log(nameArr + " 있어요");
+  }
+
+  이름찾기('철수');
+
+
+
+
     let pants = [28, 30, 32];
     let shirts = [95, 100, 105];
 
     $('.form-select').eq(0).on('input', function(){
+
       let value = $('.form-select').eq(0).val();   // = this.value; =e.currentTarget.value;
       if(value == '셔츠'){
         $('.form-select').eq(1).removeClass('form-hide');
