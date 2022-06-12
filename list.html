@@ -18,63 +18,91 @@
   </head>
   <body>
 
-    <div class="card-group container">
-        <div class="card">
-          <img src="https://via.placeholder.com/600">
-          <div class="card-body">
-            <h5>Card title</h5>
-            <p>가격 : 70000</p>
-            <button class="btn btn-danger">주문하기</button>
-          </div>
-        </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/600">
-          <div class="card-body">
-            <h5>Card title</h5>
-            <p>가격 : 70000</p>
-            <button class="btn btn-danger">주문하기</button>
-          </div>
-        </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/600">
-          <div class="card-body">
-            <h5>Card title</h5>
-            <p>가격 : 70000</p>
-            <button class="btn btn-danger">주문하기</button>
-          </div>
-        </div>
-    </div>
-      
-    <script>
+    <div class="container">
+      <div class="row">
+<!--     
+        <div class="col-sm-4">
+          <img src="https://via.placeholder.com/600" class="w-100">
+          <h5>Card title</h5>
+          <p>가격 : 70000</p>
+        </div> -->
+    
+      </div>
+    </div> 
 
-        var products = [
-            { id : 0, price : 70000, title : 'Blossom Dress' },
-            { id : 1, price : 50000, title : 'Springfield Shirt' },
-            { id : 2, price : 60000, title : 'Black Monastery' }
-        ];
-
-        for(let i=0; i<3; i++){
-            $('.card-body h5').eq(i).html(products[i].title);
-            $('.card-body p').eq(i).html(`가격 : ${products[i].price}`);
-        }
-        
-    </script>
 
     <script>
-      $.get('https://codingapple1.github.io/price.json')
-      .done(function(data){
-        console.log(data.price);  //성공 시 
-      }).fail(function(){
-        console.log('fail..');  //실패 시 
+
+      let products = [
+          { id : 0, price : 70000, title : 'Blossom Dress' },
+          { id : 1, price : 50000, title : 'Springfield Shirt' },
+          { id : 2, price : 60000, title : 'Black Monastery' }
+      ];
+
+      products.forEach((a, i) =>{
+        // a: products안에 있는 하나하나의 데이터
+        // console.log(a);
+        // i: 0부터 1씩 증가하는 정수
+        // console.log(i);
+
+        $('.row').append(template(a));
       });
 
-      fetch('https://codingapple1.github.io/price.json')
-      .then(res => res.json())  //받아온 json(문자열)을 object로 바꿔주는 기능
-      .then(data => {
-        console.log(data.price)
-      })
-      .catch.log(error);
+      function template(b){
+        let tem = 
+        `<div class="col-sm-4">
+          <img src="https://via.placeholder.com/600" class="w-100">
+          <h5>${b.title}</h5>
+          <p>가격 : ${b.price}</p>
+        </div>`;
+
+        return tem;
+      }
+      
+
     </script>
+
+
+
+
+    <div class="container">
+      <button class="btn btn-danger" id="more">더 보기</button>
+    </div>
+
+    <script>
+      //클릭 시 숫자 누적할 변수 생성
+      let click= 0;
+
+      $('#more').click(function(){
+        //더보기 버튼 클릭시 click변수에 +1씩 누적
+        click += 1;
+        // console.log(click);
+
+        let url;
+
+        //짝수 클릭 시 url을 more1.json으로, 아니면 more2.json으로 변경
+        if(click %2 == 1){
+          url = 'https://codingapple1.github.io/js/more1.json'; 
+        }else {
+          url = 'https://codingapple1.github.io/js/more2.json'; 
+        }
+
+        //url을 가져와서 forEach돌림
+        $.get(url).done((data)=>{
+
+          data.forEach((a, i) =>{
+            
+            $('.row').append(template(a));
+
+          });
+        });
+      });
+
+
+
+
+    </script>
+
 
 
 
