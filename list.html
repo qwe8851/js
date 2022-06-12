@@ -61,12 +61,19 @@
     </script>
 
     <script>
-      $.get('https://codingapple1.github.io/hello.txt')
+      $.get('https://codingapple1.github.io/price.json')
       .done(function(data){
-        console.log(data);  //성공 시 
+        console.log(data.price);  //성공 시 
       }).fail(function(){
         console.log('fail..');  //실패 시 
+      });
+
+      fetch('https://codingapple1.github.io/price.json')
+      .then(res => res.json())  //받아온 json(문자열)을 object로 바꿔주는 기능
+      .then(data => {
+        console.log(data.price)
       })
+      .catch.log(error);
     </script>
 
 
