@@ -30,6 +30,10 @@
       </div>
     </div> 
 
+    <div class="container my-3">
+      <button class="btn btn-danger" id="price">가격순정렬</button>
+    </div>
+
 
     <script>
 
@@ -38,6 +42,56 @@
           { id : 1, price : 50000, title : 'Springfield Shirt' },
           { id : 2, price : 60000, title : 'Black Monastery' }
       ];
+
+      
+      // 가격순으로 정렬 
+      $('#price').click(function(){
+        products.sort(function(a,b){
+          return a.price - b.price
+        });        
+
+        // html 가격순으로 정렬 (지웠다가 다시 추가)
+        $('.row').html('');
+        
+        products.forEach((a,i) =>{
+          $('.row').append(template(a));
+        });
+      });
+
+      
+
+      
+
+
+
+      let arr = [7, 3, 5, 2, 40];
+      let arr2 = ['b', 'a', 'c'];
+      
+      arr2.sort(function(a, b){
+        if(a>b){
+          return 1;
+        }else{
+          return-1;
+        }
+      });
+      console.log(arr2);
+
+      // //숫자 오름차순으로 정리하는 법
+      // arr.sort(function(a, b){
+      //   return a-b;
+      // });
+      // // 1. a, b는 array안의 자료임
+      // // 2. return 오른쪽이 양수면 a를 오른쪽으로
+      // // 3. return 오른쪽이 음수면 b를 오른쪽으로
+
+      // // 오름차순 a-b/ 내림차순 b-a
+
+      // console.log(arr);
+
+
+
+
+
 
       products.forEach((a, i) =>{
         // a: products안에 있는 하나하나의 데이터
@@ -58,7 +112,6 @@
 
         return tem;
       }
-      
 
     </script>
 
