@@ -26,12 +26,15 @@
           <h5>Card title</h5>
           <p>가격 : 70000</p>
         </div> -->
+
+        
     
       </div>
     </div> 
 
     <div class="container my-3">
       <button class="btn btn-danger" id="price">가격순정렬</button>
+      <button class="btn btn-danger" id="price">장바구니</button>
     </div>
 
 
@@ -44,6 +47,24 @@
       ];
 
       
+
+      function template(b){
+        let tem = 
+        `<div class="col-sm-4">
+          <img src="https://via.placeholder.com/600" class="w-100">
+          <h5>${b.title}</h5>
+          <p>가격 : ${b.price}</p>
+          <button class = "buy" id = "buy">구매</button>
+        </div>`;
+
+        return tem;
+      }
+
+
+       
+
+
+
       // 가격순으로 정렬 
       $('#price').click(function(){
         products.sort(function(a,b){
@@ -58,35 +79,25 @@
         });
       });
 
+//LocalStorage
+      // localStorage에 데이터 넣기
+      localStorage.setItem('이름', 'kim');
+
+      // localStorage에 있는 '이름'이라는 변수에 value값 가져오기
+      localStorage.getItem('이름');
+
+      // localStorage에 데이터 삭제
+      localStorage.removeItem('이름');
       
+      // 편법 arr/obj → JSON
+      let arar = [1, 2, 3];
+      let newArar = JSON.stringify(arar);
+      localStorage.setItem('num', newArar);
+      // JSON → arr/obj
+      newArar = JSON.parse(newArar);
+      localStorage.setItem('num', newArar);
 
-      
 
-
-
-      let arr = [7, 3, 5, 2, 40];
-      let arr2 = ['b', 'a', 'c'];
-      
-      arr2.sort(function(a, b){
-        if(a>b){
-          return 1;
-        }else{
-          return-1;
-        }
-      });
-      console.log(arr2);
-
-      // //숫자 오름차순으로 정리하는 법
-      // arr.sort(function(a, b){
-      //   return a-b;
-      // });
-      // // 1. a, b는 array안의 자료임
-      // // 2. return 오른쪽이 양수면 a를 오른쪽으로
-      // // 3. return 오른쪽이 음수면 b를 오른쪽으로
-
-      // // 오름차순 a-b/ 내림차순 b-a
-
-      // console.log(arr);
 
 
 
@@ -95,23 +106,16 @@
 
       products.forEach((a, i) =>{
         // a: products안에 있는 하나하나의 데이터
-        // console.log(a);
         // i: 0부터 1씩 증가하는 정수
-        // console.log(i);
 
         $('.row').append(template(a));
       });
 
-      function template(b){
-        let tem = 
-        `<div class="col-sm-4">
-          <img src="https://via.placeholder.com/600" class="w-100">
-          <h5>${b.title}</h5>
-          <p>가격 : ${b.price}</p>
-        </div>`;
 
-        return tem;
-      }
+
+
+
+
 
     </script>
 

@@ -302,6 +302,7 @@ console.log(`문자 ${a} 문자`); // '문자안녕문자'출력됨
 
 
 <br><br><br>
+
 ---
 **DOM(Document Object Model)** 
 - 자바스크립트가 HTML에 대한 정보들 (id, class, name, style, innerHTML등)을 
