@@ -54,15 +54,33 @@
           <img src="https://via.placeholder.com/600" class="w-100">
           <h5>${b.title}</h5>
           <p>가격 : ${b.price}</p>
-          <button class = "buy" id = "buy">구매</button>
+          <button class="buy">구매</button>
         </div>`;
 
         return tem;
       }
 
 
-       
+      products.forEach((a, i) =>{
+        // a: products안에 있는 하나하나의 데이터
+        // i: 0부터 1씩 증가하는 정수
 
+        $('.row').append(template(a));
+      });
+
+
+
+      // 구매버튼 클릭시 title주소 가져오기
+      $('.buy').click(function(e){
+        var title = $(e.target).siblings('h5').text();
+
+        if (localStorage.getItem('cart') != null){
+          // 기존에 잇던거 실행
+        } else {
+          localStorage.setItem('cart', JSON.stringify([title]));
+        }
+        console.log(title);
+      });
 
 
       // 가격순으로 정렬 
@@ -79,40 +97,23 @@
         });
       });
 
-//LocalStorage
-      // localStorage에 데이터 넣기
-      localStorage.setItem('이름', 'kim');
+      // //LocalStorage
+      // // localStorage에 데이터 넣기
+      // localStorage.setItem('이름', 'kim');
 
-      // localStorage에 있는 '이름'이라는 변수에 value값 가져오기
-      localStorage.getItem('이름');
+      // // localStorage에 있는 '이름'이라는 변수에 value값 가져오기
+      // localStorage.getItem('이름');
 
-      // localStorage에 데이터 삭제
-      localStorage.removeItem('이름');
+      // // localStorage에 데이터 삭제
+      // localStorage.removeItem('이름');
       
-      // 편법 arr/obj → JSON
-      let arar = [1, 2, 3];
-      let newArar = JSON.stringify(arar);
-      localStorage.setItem('num', newArar);
-      // JSON → arr/obj
-      newArar = JSON.parse(newArar);
-      localStorage.setItem('num', newArar);
-
-
-
-
-
-
-
-
-      products.forEach((a, i) =>{
-        // a: products안에 있는 하나하나의 데이터
-        // i: 0부터 1씩 증가하는 정수
-
-        $('.row').append(template(a));
-      });
-
-
-
+      // // 편법 arr/obj → JSON
+      // let arar = [1, 2, 3];
+      // let newArar = JSON.stringify(arar);
+      // localStorage.setItem('num', newArar);
+      // // JSON → arr/obj
+      // newArar = JSON.parse(newArar);
+      // localStorage.setItem('num', newArar);
 
 
 
