@@ -20,15 +20,14 @@
 
     <div class="container">
       <div class="row">
-<!--     
+      <!--     
         <div class="col-sm-4">
           <img src="https://via.placeholder.com/600" class="w-100">
           <h5>Card title</h5>
           <p>가격 : 70000</p>
-        </div> -->
+        </div> 
+      -->
 
-        
-    
       </div>
     </div> 
 
@@ -75,11 +74,14 @@
         var title = $(e.target).siblings('h5').text();
 
         if (localStorage.getItem('cart') != null){
-          // 기존에 잇던거 실행
+          let 꺼낸거 = JSON.parse(localStorage.cart);
+          꺼낸거.push(title);
+          localStorage.setItem('cart', JSON.stringify(꺼낸거) );
         } else {
           localStorage.setItem('cart', JSON.stringify([title]));
         }
         console.log(title);
+
       });
 
 
