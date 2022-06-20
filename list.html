@@ -70,20 +70,22 @@
 
 
       // 구매버튼 클릭시 title주소 가져오기
-      $('.buy').click(function(e){
-        var title = $(e.target).siblings('h5').text();
 
-        if (localStorage.getItem('cart') != null){
-          let 꺼낸거 = JSON.parse(localStorage.cart);
-          꺼낸거.push(title);
-          localStorage.setItem('cart', JSON.stringify(꺼낸거) );
+      $('.buy').click(function(e){
+
+        let title = $(e.target).siblings('h5').text();
+        
+        if(localStorage.getItem('cart') != null){
+          let out = JSON.parse(localStorage.cart);
+          out.push(title);
+          localStorage.setItem('cart', JSON.stringify(out));
         } else {
           localStorage.setItem('cart', JSON.stringify([title]));
         }
-        console.log(title);
+
+
 
       });
-
 
       // 가격순으로 정렬 
       $('#price').click(function(){
