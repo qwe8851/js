@@ -76,6 +76,9 @@
         let title = $(e.target).siblings('h5').text();
         
         if(localStorage.getItem('cart') != null){
+          if(localStorage.getItem('cart')){
+            console.log(1);
+          }
           let out = JSON.parse(localStorage.cart);
           out.push(title);
           localStorage.setItem('cart', JSON.stringify(out));

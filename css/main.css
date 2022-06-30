@@ -83,3 +83,26 @@
     font-size: 30px;
     transition: all 1s;
 }
+
+
+
+
+
+
+.gray{
+    background-color: lightgray;
+    height: 2000px;
+    margin-top: 500px;
+}
+
+.image{
+    float: right;
+    width: 400px;
+    position: sticky; /* 고정 (fixed : 걍 고정, sticky : 조건부 고정)*/
+    top: 100px; /* top 100px부터 고정 */
+}
+
+.text{
+    float: left;
+    width: 300px;
+}
