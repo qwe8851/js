@@ -92,6 +92,7 @@
     let 시작좌표 = 0;
     let 눌렀냐 = false;
 
+  // 마우스 클릭 시 (PC)
     $('.slide-box').eq(0).on('mousedown', function (e) {
       시작좌표 = e.clientX;
       눌렀냐 = true;
@@ -116,6 +117,45 @@
         $('.slide-container').css('transition', 'none')
       }, 500);
     })
+
+  // 터치 시 (모바일)
+    // 터치 시작 시 발동
+    $('.slide-box').eq(0).on('touchstart', function (e) {
+      시작좌표 = e.touches[0].clientX;//몇번째 터치인지[0]번째
+      눌렀냐 = true;
+    });
+
+    //터치 중일 시 발동
+    $('.slide-box').eq(0).on('touchmove', function (e) {
+      if (눌렀냐 === true) {
+        $('.slide-container').css('transform', `translateX( ${e.touches[0].clientX - 시작좌표}px )`)
+      }
+    });
+
+    //터치 종료 시 발동
+    $('.slide-box').eq(0).on('touchend', function (e) {
+      눌렀냐 = false;
+
+      //touchend에서는 touches[0]이 아닌 changedTouches[0]를 써줘야 한다.
+      if (e.changedTouches[0].clientX - 시작좌표 < -100) { 
+        $('.slide-container').css('transition', 'all 0.5s').css('transform', 'translateX(-100vw');
+      } else {
+        $('.slide-container').css('transition', 'all 0.5s').css('transform', 'translateX(0vw');
+      }
+
+      setTimeout(() => {
+        $('.slide-container').css('transition', 'none')
+      }, 500);
+    })
+// ▲ Hammer.js같은 걸 쓰면 
+// - 브라우저간 호환성을 잡아주고 이벤터리스터 6개말고 1개만 필요
+// - 스와이프, pinch, rotate 이벤터리스너도 제공
+
+
+// 응용1) 나머지 이미지들도 기능 개발
+// 응용2) 첫 이미지는 우측으로 스와이프 못하게!
+
+//추가로 다시 해보기
 
 </script>
 
