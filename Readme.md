@@ -333,6 +333,54 @@ object 자료로 정리한 것
 
 
 
+### mouse 이벤트 3가지
+---
+**mousedown**
+어떤 요소에 마우스버튼 눌렀을 때
+
+**mousedown**
+어떤 요소에 마우스버튼 뗐을 때
+
+**mousedown**
+어떤 요소 위에서 마우스 이동할 때
+ 
+ **예제 1**
+```html
+<div>캐러셀있는곳</div>
+
+<script>
+  $('.slide-box').eq(0).on('mousemove', function(){
+    console.log('안녕')
+  })
+</script>
+```
+이런식으로 쓰면 .slide-box위에 마우스가 움질일 때마다 '안녕'이 출력됨.
+
+**e.clientX, e.clientY**
+```html
+<div>캐러셀있는곳</div>
+
+<script>
+  $('.slide-box').eq(0).on('mousemove', function(e){
+    console.log(e.clientX)
+  })
+</script>
+```
+mouse어쩌구 이벤트리스너 안에 e.clientX나 e.clientY를 출력해볼 수 있는데
+현재 마우스 좌표를 알려준다. 
+이걸 쓰면 유저가 얼마나 사진을 드래그 했는지 등등을 알 수 있어 유용함
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
